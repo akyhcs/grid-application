@@ -1,0 +1,122 @@
+@function init($a) {
+    $seat-size: $a;
+}
+
+$primary-color:darkgrey;
+$view-height:90vh;
+$view-width:94vw;
+$seat-size :4rem; //40px
+$seat-text-size:1.89rem;
+$font-weight:bold;
+%number_extends {
+    background-color: transparent;
+}
+
+%seat_style {
+    width: $seat-size;
+    height: $seat-size;
+    // background-color: wheat;
+    text-align: center;
+    font-weight: bolder; //bolder
+    display: grid;
+    font-size: $seat-text-size;
+    align-content: end;
+    letter-spacing: 0.0;
+    cursor: pointer;
+}
+
+.margin-class {
+    height: 8.5vh;
+}
+
+.side-bar-one {
+    text-transform: capitalize;
+    // @extend %border_style;
+}
+
+.infant {
+    background-color: navy;
+}
+
+.wheel-chair {
+    background-color: yellow;
+}
+
+.special-meal {
+    background-color: orange;
+}
+
+.normal {
+    background-color: olivedrab;
+}
+
+.check-in {
+    background-color: slategray;
+}
+
+@mixin styleAlphbet {
+    .item--11,
+    .item--23,
+    .item--34 {
+        // @extend %number_extends;
+        justify-self: end;
+        align-self: center;
+    }
+}
+
+@function divide($a) {
+    @return $a2;
+}
+
+.main-container {
+    // font-size: 50%;
+    // height: $view-height;
+    width: $view-width;
+    grid-template-columns: [side-bar-start] minmax(min-content, 6rem) [side-bar-end seats-start] repeat(12, [col-start] 1fr [col-end]) [seats-end];
+    grid-template-rows: [row-one-start] 1fr [row-one-end row-two-start] 1fr [row-two-end];
+    display: grid;
+    margin: 0rem auto;
+    // border: 1px solid red;
+    // .side-bar-one {
+    //     grid-row: row-one-start / row-one-end;
+    //     grid-column: side-bar-start / side-bar-end;
+    //     // background-color: olivedrab;
+    //     text-align: center;
+    // }
+    // .side-bar-two {
+    //     grid-row: row-two-start / row-two-end;
+    //     grid-column: side-bar-start / side-bar-end;
+    //     background-color: mediumvioletred;
+    //     text-align: center;
+    // }
+    .container-1 {
+        background-color: transparent;
+        grid-row: row-one-start / row-two-start;
+        grid-column: seats-start / seats-end;
+        display: grid;
+        justify-content: center;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(11, 1fr);
+        padding: 2rem;
+        grid-gap: 1rem;
+        &>* {
+            @extend %seat_style;
+        }
+        .item--10 {
+            letter-spacing: 0.0;
+        }
+    }
+    .container-2 {
+        background-color: transparent;
+        grid-row: row-two-start / row-two-end;
+        grid-column: seats-start / seats-end;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: repeat(11, 1fr);
+        padding: 2rem;
+        grid-gap: 1rem;
+        &>* {
+            @extend %seat_style;
+        }
+    }
+}

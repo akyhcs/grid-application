@@ -1,0 +1,47 @@
+@mixin responsive($breakpoint) {
+    @if $breakpoint==tablet-potrait {
+        @media (max-width: 56.25em) {
+            @content
+        }
+    }
+    ;
+    @if $breakpoint==tablet-landscape {
+        @media (max-width: 75em) {
+            @content
+        }
+    }
+    ;
+    @if $breakpoint==phone {
+        @media (max-width: 49em) {
+            @content
+        }
+    }
+    ;
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 63.5%; //   10px/16px = 63.5
+    letter-spacing: 0.7rem;
+    font-weight: bolder;
+    body {
+        box-sizing: border-box;
+        display: grid; // background-color: yellow;
+    }
+    @include responsive(tablet-landscape) {
+        font-size: 56.25%;
+    }
+    @include responsive(tablet-potrait) {
+        font-size: 50%;
+    }
+    @include responsive(phone) {
+        font-size: 30%;
+    }
+}

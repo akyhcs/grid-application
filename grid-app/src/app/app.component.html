@@ -1,0 +1,25 @@
+<div class="margin-class">
+
+</div>
+<div [class.main-container]="true">
+    <div [class.side-bar-one]="true">
+        <!-- <h1 [class.infant]="true">infants</h1> -->
+        <!-- <h1 [class.wheel-chair]="true">wheel chair</h1>
+        <h1 [class.special-meal]="true">special meal</h1>
+        <h1 [class.normal]="true">passenger without any preferences</h1>
+        <h1 [class.check-in]="true">check in</h1> -->
+    </div>
+    <div [class.side-bar-two]="true">
+        <!-- <h1>SIDE BAR 2</h1> -->
+    </div>
+
+    <div [class.container-1]="true">
+        <div class="item" *ngFor="let seat of seatArrOne; let i = index" [ngClass]="seat" [class.check-in]="isSelected[i]" [innerText]="seatNumber[i]" (click)="onButtonClick(seatNumber[i],i)">
+        </div>
+    </div>
+    <div [class.container-2]="true">
+        <div class="item" *ngFor="let seat of seatArrTwo;let i = index" [ngClass]="seat" [class.check-in]="isSelected[i+44]" [innerText]="seatNumber[i+44]" (click)="onButtonClick(seatNumber[i+44],i+44)">
+        </div>
+    </div>
+</div>
+<div class="margin-class">
